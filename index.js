@@ -1,105 +1,87 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-const components = require("components");
+import inquirer from "inquirer";
+import fs from "fs"
+import Template from './template.js'
+import path from 'path'
 
 // QUESTIONS ARRAY
-inquirer.prompt(
-  [
-    {
-      type: "input",
-      message: "what is the project title?",
-      name: "Title"
-    },
-    {
-      type: "input",
-      message: "What is the description of the project?",
-      name: "Description"
-    },
-    {
-      type: "input",
-      message: "Table of Contents",
-      name: "Table of Contents"
-    },
-    {
-      type: "input",
-      message: "What does the user need to install to run this app?",
-      name: "Installation"
-    },
-    {
-      type: "input",
-      message: "How is the app used? give instructions",
-      name: "Usage"
-    },
-    {
-      type: "input",
-      message: "What liscence is used?",
-      name: "License"
-    },
-    {
-      type: "input",
-      message: "Who contributed to the project?",
-      name: "Contributing"
-    },
-    {
-      type: "input",
-      message: "what commands are needed to run this app?",
-      name: "Tests"
-    },
-    {
-      type: "input",
-      message: "What is your github username?",
-      name: "Github"
-    },
-    {
-      type: "input",
-      message: "What is your Email?",
-      name: "Email"
-    },
-  ]
-).then(
-  ({
-    title,
-    installation,
-    Usage,
-    license,
-    Contributing,
-    Tests,
-    Github,
-    Email,
-  }) => {
-    // TEMPLATE
-    const template = `# ${title}
-  
-  * [Installation](#installation)
-  * [Usage](#Usage)
-  * [License](#License)
-  * [Contributing](#Contributing)
-  * [Tests](#Tests)
-  # Installation
-  ${installation}
-  ## Usage
-  ${Usage}
-  ## Contributing
-  ${Contributing}
-  ### License
-  ${license}
-  
-  #Contact
-  * Github :${Github}
-  * Email :${Email}`;
-    createNewFile(title, template);
-  }
-);
 
-// README FUNCTION
-function createNewFile(fileName, data) {
+const questions = [
+  {
+    type: "input",
+    name: "title",
+    message: "Please name your Project.",
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "Please describe the purpose and functionality of this project.",
+  },
+  {
+    type: "input",
+    name: "screenshot",
+    message: "Please provide the relative path to the image you want to use as the screenshot."
+  },
+  {
+    type: "input",
+    name: "link",
+    message: "Please provide a URL where a user can access your deployed application."
+  },
+  {
+    type: "checkbox",
+    name: "license",
+    message: "Please select a license applicable to this project.",
+    choices: ["MIT", "APACHE2.0", "Boost1.0", "MPL2.0", "BSD2", "BSD3", "none"],
+  },
+  {
+    type: "input",
+    name: "require",
+    message: "List any project dependencies here.",
+  },
+  {
+    type: "input",
+    name: "features",
+    message: "List some cool features about this project here.",
+  },
+  {
+    type: "input",
+    name: "usage",
+    message:
+      "State the languages or technologies associated with this project.",
+  },
+  {
+    type: "input",
+    name: "creator",
+    message: "Write your GitHub username.",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Provide a valid email address.",
+  },
+  {
+    type: "input",
+    name: "contributors",
+    message: "Please list any contributors. (Use GitHub usernames)",
+    default: "",
+  },
+  {
+    type: "input",
+    name: "test",
+    message: "Provide walkthrough of required tests if applicable.",
+  },
+];
 
-  fs.writeFile(`./${fileName.toLowerCase().split(' ').join('')}.md`, data, (err) => {
-    if (err) {
-      console.log(err)
-    }
-    console.log('Your README has been generated!');
-  })
+// Writing README.md File
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
-
+// Initializing app
+function init() {
+  inquirer.prompt(questions).then((responses) => {
+    const readmePageContent = Template(responses);
+    console.log("Creating Professional README.md File...");
+    writeToFile('README.md', readmePageContent);
+  });
+}
+init();
