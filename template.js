@@ -34,7 +34,7 @@ function renderLicenseSection(license) {
 const Template = ({
   title,
   license,
-  discription,
+  description,
   installation,
   usage,
   contribution,
@@ -49,7 +49,7 @@ const Template = ({
   ***
   
   ## Description
-  ${discription}
+  ${description}
   ***
   
   ## Table of Contents

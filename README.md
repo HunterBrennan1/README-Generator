@@ -1,4 +1,4 @@
-# t
+# Readme-generator
   ### License
   ![GitHub license](https://img.shields.io/badge/license--blue.svg)
   undefined
@@ -26,7 +26,7 @@
   <a name="usage"></a>
   ## Usage Information
   
-  t
+  JS node.js Inquirer
   ***
   
   <a name="contribution"></a>
@@ -42,5 +42,5 @@
   
   ### Contact Me:
   If you have any additional questions, please send me an email.
-  #### t 
+  #### hunterbrennan15@gmail.com 
   

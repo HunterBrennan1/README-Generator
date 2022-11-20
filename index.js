@@ -21,11 +21,7 @@ const questions = [
     name: "screenshot",
     message: "Please provide the relative path to the image you want to use as the screenshot."
   },
-  {
-    type: "input",
-    name: "link",
-    message: "Please provide a URL where a user can access your deployed application."
-  },
+
   {
     type: "checkbox",
     name: "license",
@@ -39,8 +35,8 @@ const questions = [
   },
   {
     type: "input",
-    name: "features",
-    message: "List some cool features about this project here.",
+    name: "installation",
+    message: "How would you install this application?",
   },
   {
     type: "input",
@@ -50,7 +46,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "creator",
+    name: "github",
     message: "Write your GitHub username.",
   },
   {
