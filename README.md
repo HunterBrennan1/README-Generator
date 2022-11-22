@@ -1,4 +1,4 @@
-# Readme-generator
+# README-generator
   ### License
   ![GitHub license](https://img.shields.io/badge/license--blue.svg)
   undefined
@@ -6,7 +6,7 @@
   ***
   
   ## Description
-  undefined
+  Generates a readme file for the user by following inquirer prompts in the users terminal
   ***
   
   ## Table of Contents
@@ -20,13 +20,13 @@
   <a name="installation"></a>
   ## Installation Instructions
   
-  undefined
+  npm i, npm install inquirer
   ***
   
   <a name="usage"></a>
   ## Usage Information
   
-  JS node.js Inquirer
+  inquirer, node.js, javascript
   ***
   
   <a name="contribution"></a>
@@ -38,7 +38,7 @@
   ## Questions
   
   ### GitHub Profile:
-  https://github.com/undefined
+  https://github.com/hunterbrennan1
   
   ### Contact Me:
   If you have any additional questions, please send me an email.
